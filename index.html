@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EstateIQ | House Price Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="navbar">
+        <a href="/" class="brand">
+            <span class="brand-icon">E</span>
+            <span>Estate<span class="brand-accent">IQ</span></span>
+        </a>
+
+        <div class="nav-right">
+            <span class="status-dot"></span>
+            ML Prediction System
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section class="hero">
+            <div class="eyebrow">
+                <span class="sparkle">✦</span>
+                INTELLIGENT PROPERTY VALUATION
+            </div>
+
+            <h1>
+                Find the value of<br>
+                your <span class="gradient-text">dream home.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover an estimated property value using historical
+                housing data and machine learning.
+            </p>
+
+            <div class="feature-row">
+                <div class="feature">
+                    <span class="feature-icon">⌂</span>
+                    <span>Property Insights</span>
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">✳</span>
+                    <span>ML Powered</span>
+                </div>
+
+                <div class="feature">
+                    <span class="feature-icon">↗</span>
+                    <span>Instant Estimate</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="prediction-card">
+
+            <div class="card-header">
+                <div>
+                    <div class="section-label">PROPERTY DETAILS</div>
+                    <h2>Configure your home</h2>
+                    <p>Enter the details to estimate the property price.</p>
+                </div>
+
+                <div class="house-icon">⌂</div>
+            </div>
+
+            <form action="/predict" method="POST">
+
+                <div class="form-group">
+                    <label for="area_sqft">
+                        <span class="label-icon">▦</span>
+                        Property area
+                    </label>
+
+                    <div class="input-wrapper">
+                        <input
+                            type="number"
+                            id="area_sqft"
+                            name="area_sqft"
+                            min="1"
+                            step="any"
+                            placeholder="Enter total area"
+                            required>
+                        <span class="input-unit">SQ FT</span>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="bedrooms">
+                            <span class="label-icon">▤</span>
+                            Bedrooms
+                        </label>
+
+                        <div class="input-wrapper">
+                            <input
+                                type="number"
+                                id="bedrooms"
+                                name="bedrooms"
+                                min="1"
+                                step="1"
+                                placeholder="e.g. 3"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bathrooms">
+                            <span class="label-icon">◉</span>
+                            Bathrooms
+                        </label>
+
+                        <div class="input-wrapper">
+                            <input
+                                type="number"
+                                id="bathrooms"
+                                name="bathrooms"
+                                min="1"
+                                step="1"
+                                placeholder="e.g. 2"
+                                required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="age_years">
+                        <span class="label-icon">◷</span>
+                        Property age
+                    </label>
+
+                    <div class="input-wrapper">
+                        <input
+                            type="number"
+                            id="age_years"
+                            name="age_years"
+                            min="0"
+                            step="any"
+                            placeholder="Enter the age of the house"
+                            required>
+                        <span class="input-unit">YEARS</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="predict-button">
+                    <span>Predict House Price</span>
+                    <span class="button-arrow">↗</span>
+                </button>
+
+                <p class="privacy-note">
+                    <span>✦</span>
+                    Powered by a trained machine learning model
+                </p>
+
+            </form>
+
+            {% if prediction %}
+            <div class="result-card">
+                <div class="result-top">
+                    <span class="result-icon">✓</span>
+                    <span>ESTIMATED PROPERTY VALUE</span>
+                </div>
+
+                <h2>{{ prediction }}</h2>
+
+                <p class="result-description">
+                    This estimate is generated from the house details
+                    you provided.
+                </p>
+
+                {% if mae %}
+                <div class="mae-info">
+                    Model test MAE: {{ mae }}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if error %}
+            <div class="error-message">
+                <span>!</span>
+                {{ error }}
+            </div>
+            {% endif %}
+
+        </section>
+
+        <section class="bottom-note">
+            <div class="note-icon">ⓘ</div>
+            <p>
+                <strong>Note:</strong> This is an educational estimate
+                based on historical data, not a guaranteed market price.
+            </p>
+        </section>
+
+        <footer>
+            <span>EstateIQ</span>
+            <span>HOUSE PRICE PREDICTION SYSTEM · 2026</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f5fb;
+    color: #222b45;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+    background: #6246ea;
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #222b45;
+}
+
+header p {
+    color: #727b91;
+    line-height: 1.6;
+}
+
+.card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e4e8f2;
+}
+
+.card h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #727b91;
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8deeb;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #6246ea;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 26px;
+    border: none;
+    border-radius: 8px;
+    background: #6246ea;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4e35cc;
+}
+
+.result {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result h3 {
+    margin-bottom: 10px;
+}
+
+.prediction {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.pass {
+    background: #e8f8ef;
+    color: #187344;
+}
+
+.fail {
+    background: #fff0f0;
+    color: #b42332;
+}
+
+.error {
+    background: #fff4e5;
+    color: #8a4b08;
+}
+
+.note {
+    margin-top: 22px;
+    color: #727b91;
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin: 25px 0;
+    color: #727b91;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 24px auto;
+    }
+
+    .card {
+        padding: 22px 18px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
